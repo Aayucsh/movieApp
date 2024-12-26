@@ -1,5 +1,6 @@
 import React from "react";
 import Loader from "./Loader";
+import { Link } from "react-router-dom";
 
 const Section = ({ data }) => {
   return data.backdrop_path ? (
@@ -12,7 +13,7 @@ const Section = ({ data }) => {
       }}
       className="bg-zinc-500 w-full h-[480px] relative  "
     >
-      <div className="absolute bottom-5 pl-5 ">
+      <Link to={`${data.media_type}/details/${data.id}`} className="absolute bottom-5 pl-5 ">
         <h1 className="text-5xl font-semibold pb-2 ">
           {data.name || data.title}
         </h1>
@@ -22,7 +23,7 @@ const Section = ({ data }) => {
         >
           Watch Trailer
         </button>
-      </div>
+      </Link>
       <div className="absolute inset-0 h-16 bg-gradient-to-t from-transparent to-[#0C0C0C]"></div>
     </div>
   ) : (

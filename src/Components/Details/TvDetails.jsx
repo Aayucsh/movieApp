@@ -27,6 +27,7 @@ const TvDetails = () => {
       }
     };
     fetchData();
+    console.log(info)
   }, [id, dispatch]);
 
   if (loading) return <Loader />;
@@ -69,9 +70,16 @@ const TvDetails = () => {
               {info.details.tagline}
             </p>
             <p className="mt-2">{info.details.overview}</p>
-            <button className="mt-4 bg-blue-600 text-white w-32 py-2 px-4 rounded hover:bg-blue-700">
-              Play Trailer
-            </button>
+            {info.videoes ? (
+              <a
+                href={`https://www.youtube.com/watch?v=${info.videoes.key}`}
+                className="mt-4 bg-blue-600 text-white w-32 py-2 px-4 rounded hover:bg-blue-700"
+              >
+                Play Trailer
+              </a>
+            ) : (
+              ""
+            )}
             <p className="text-gray-400">
               {info.watchproviders ? (
                 <img
