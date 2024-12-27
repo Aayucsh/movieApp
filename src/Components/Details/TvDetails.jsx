@@ -27,7 +27,6 @@ const TvDetails = () => {
       }
     };
     fetchData();
-    console.log(info)
   }, [id, dispatch]);
 
   if (loading) return <Loader />;

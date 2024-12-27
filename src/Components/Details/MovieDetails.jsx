@@ -12,14 +12,20 @@ const MovieDetails = () => {
   const { info } = useSelector((state) => state.movie);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       await dispatch(loadmoviedata(id));
-      setLoading(false);
+      setLoading(false); 
     };
+
     fetchData();
-    console.log(info);
   }, [id, dispatch]);
+
+  useEffect(() => {
+    if (!info) setLoading(true); 
+  }, [info]);
 
   if (loading) return <Loader />;
 
@@ -82,7 +88,7 @@ const MovieDetails = () => {
                         alt="Flatrate provider"
                       />
                     )}
-                    <br />
+                  <br />
                   {info.watchproviders.rent &&
                     info.watchproviders.rent.length > 0 && (
                       <div className="inline-flex items-center my-4">
@@ -97,7 +103,6 @@ const MovieDetails = () => {
                         ))}
                       </div>
                     )}
-                  {/* <br /> */}
                   {info.watchproviders.buy &&
                     info.watchproviders.buy.length > 0 && (
                       <div className="inline-flex items-center ml-10 my-4">
