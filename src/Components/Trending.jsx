@@ -50,7 +50,8 @@ const Trending = () => {
       <Sidebar/>
       <div className="w-[85%]">
         <Topnav />
-        <div className="px-10 absolute right-0">
+        <div className="px-10 absolute right-0 flex items-center justify-between w-[85%] ">
+          <h1 className="text-4xl">Trending</h1>
           <Dropdown
             options={["all", "movie", "tv"]}
             func={(e) => setCategory(e.target.value)}

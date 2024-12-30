@@ -13,7 +13,7 @@ const Cards = ({item, title}) => {
         }
         className="w-48 h-64 rounded-lg object-cover"
       />
-      <h1 className="text-xl mt-2">{item.name || item.title}</h1>
+      <h1 className="text-lg mt-2">{item.name || item.title}</h1>
     </Link>
   );
 };

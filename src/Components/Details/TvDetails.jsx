@@ -63,6 +63,9 @@ const TvDetails = () => {
               Release Date: {info.details.first_air_date}
             </p>
             <p className="text-gray-400">
+              Rating: {info.details.vote_average.toFixed(1)}
+            </p>
+            <p className="text-gray-400">
               Genre: {info.details.genres.map((genre) => genre.name).join(", ")}
             </p>
             <p className="font-semibold text-xl mt-5 ">
@@ -80,8 +83,8 @@ const TvDetails = () => {
               ""
             )}
             <p className="text-gray-400">
-              {info.watchproviders ? (
-                <img
+              {info.watchproviders ?  (
+                 <img
                   src={`https://image.tmdb.org/t/p/original/${info.watchproviders.flatrate[0].logo_path}`}
                   className="inline-block h-12 w-12 rounded my-4"
                 />

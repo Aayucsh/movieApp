@@ -3,7 +3,7 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 
 const Section = ({ data }) => {
-  return data.backdrop_path ? (
+  return data && data.backdrop_path ? (
     <div
       style={{
         background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5), rgba(0,0,0,.8)), url(https://image.tmdb.org/t/p/original/${data.backdrop_path})`,

@@ -50,7 +50,8 @@ const Movies = () => {
       <Sidebar/>
       <div className="w-[85%]">
         <Topnav />
-        <div className="px-10 absolute right-0">
+        <div className="px-10 absolute right-0 flex items-center justify-between w-[85%] ">
+        <h1 className="text-4xl">Movies</h1>
           <Dropdown
             options={["now_playing", "popular", "top_rated", "upcoming"]}
             func={(e) => setCategory(e.target.value)}

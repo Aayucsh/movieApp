@@ -19,7 +19,6 @@ const MovieDetails = () => {
       await dispatch(loadmoviedata(id));
       setLoading(false); 
     };
-
     fetchData();
   }, [id, dispatch]);
 
@@ -59,6 +58,9 @@ const MovieDetails = () => {
             <h1 className="text-5xl font-bold">{info.details.title}</h1>
             <p className="text-gray-400">
               Release Date: {info.details.release_date}
+            </p>
+            <p className="text-gray-400">
+              Rating: {info.details.vote_average.toFixed(1)}
             </p>
             <p className="text-gray-400">
               Genre: {info.details.genres.map((genre) => genre.name).join(", ")}
@@ -118,7 +120,9 @@ const MovieDetails = () => {
                       </div>
                     )}
                 </>
-              ) : null}
+              ) : (
+                <p className="mt-4">No Watch Providers</p>
+              )}
             </p>
           </div>
         </div>
