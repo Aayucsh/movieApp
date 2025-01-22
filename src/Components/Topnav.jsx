@@ -46,7 +46,7 @@ const Topnav = () => {
       {results.length > 0 && query && (
         <div
           id="style-2"
-          className="h-96 w-[590px] mt-2 bg-zinc-900 rounded-md top-12 absolute flex flex-col overflow-auto container"
+          className="h-96 w-[330px] mr-2 sm:w-[590px] mt-2 bg-zinc-900 rounded-md top-12 absolute flex flex-col overflow-auto container"
         >
           {results.map((items, index) => (
             <Link
