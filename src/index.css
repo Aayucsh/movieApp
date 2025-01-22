@@ -13,7 +13,8 @@
   font-weight: 600;
 }
 
-.container::-webkit-scrollbar {
+@media (min-width: 640px) {
+  .container::-webkit-scrollbar {
     width: 4px;
   }
   .container::-webkit-scrollbar-thumb {
@@ -29,4 +30,8 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none; /* For Chrome, Safari, and Opera */
   }
+  
+}
+
+
   

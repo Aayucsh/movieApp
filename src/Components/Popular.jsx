@@ -48,9 +48,10 @@ const Popular = () => {
   return val ? (
     <div className="w-full flex">
       <Sidebar/>
-      <div className="w-[85%]">
+      <div>
         <Topnav />
-        <div className="px-10 absolute right-0 flex items-center justify-between w-[85%]">
+        <div className="px-5 pt-5 sm:pt-0 right-0 items-start sm:absolute sm:right-0 flex flex-col sm:flex-row sm:items-center justify-between w-[85%] ">
+
         <h1 className="text-4xl">Popular</h1>
           <Dropdown
             options={["movie", "tv"]}
@@ -59,7 +60,7 @@ const Popular = () => {
         </div>
         <div>
           <InfiniteScroll
-            className="p-10 mt-7 flex flex-row w-full flex-wrap gap-8 gap-y-12"
+            className="p-7 sm:p-10 mt-0 sm:mt-10 flex sm:pt-7 flex-row w-full justify-between flex-wrap gap-8 gap-y-12"
             dataLength={val.length}
             next={fetchMoreData}
             hasMore={hasMore}

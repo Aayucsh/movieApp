@@ -32,18 +32,18 @@ const PeopleDetails = () => {
     <div className="w-full relative">
       <i
         onClick={() => navigate("/")}
-        className="ri-home-line hover:bg-blue-800 flex justify-center rounded-full items-center h-10 w-10 absolute top-8 left-10 transition-transform duration-300 ease-in-out transform hover:scale-110 active:scale-95"
+        className="ri-home-line hover:bg-blue-800 flex justify-center rounded-full items-center h-10 w-10 absolute top-1 left-0 z-40 sm:top-8 sm:left-10 transition-transform duration-300 ease-in-out transform hover:scale-110 active:scale-95"
       ></i>
 
       <Topnav />
-      <div className="px-36 pt-10 w-full h-[80%]">
-        <div className="flex">
+      <div className="px-4 md:px-36 pt-10 w-full h-auto">
+        <div className="flex flex-col md:flex-row">
           <img
             src={`https://image.tmdb.org/t/p/original/${info.details.profile_path}`}
-            className="h-96 w-64 rounded-md object-cover"
+            className="h-96 w-full md:w-64 rounded-md object-cover"
           />
-          <div className="flex flex-col pt-8 px-28">
-            <h1 className="text-5xl pb-4 font-bold">{info.details.name}</h1>
+          <div className="flex flex-col pt-8 px-4 md:px-28">
+            <h1 className="text-3xl md:text-5xl pb-4 font-bold">{info.details.name}</h1>
             <p className="text-gray-400">
               Known For: {info.details.known_for_department}
             </p>

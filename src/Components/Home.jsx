@@ -45,14 +45,14 @@ const Home = () => {
   }, [Category]);
 
   return val ? (
-    <div className="flex w-full ">
+    <div className="flex flex-col md:flex-row w-full">
       <Sidebar />
-      <div className="overflow-auto w-[85%] ">
+      <div className="overflow-auto w-full md:w-[100%]">
         <Topnav />
         <Section data={trend} />
-        <div className="w-full h-[300px]">
-          <div className="flex justify-between mx-2 ">
-            <h1 className="text-2xl m-3 mb-0">Trending Currently</h1>
+        <div className="w-full px-5 sm:px-0  h-auto md:h-[300px]">
+          <div className="flex flex-col md:flex-row justify-between mx-2">
+            <h1 className="text-2xl m-0 sm:m-3 mb-0">Trending Currently</h1>
             <Dropdown
               options={["all", "movie", "tv"]}
               func={(e) => setCategory(e.target.value)}

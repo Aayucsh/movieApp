@@ -45,29 +45,21 @@ const MovieDetails = () => {
       <Topnav />
       <i
         onClick={() => navigate("/")}
-        className="ri-home-line hover:bg-blue-800 flex justify-center rounded-full items-center h-10 w-10 absolute top-8 left-10 transition-transform duration-300 ease-in-out transform hover:scale-110 active:scale-95"
+        className="ri-home-line hover:bg-blue-800 flex justify-center rounded-full items-center h-10 w-10 absolute top-1 left-0 z-40 sm:top-8 sm:left-10 transition-transform duration-300 ease-in-out transform hover:scale-110 active:scale-95"
       ></i>
 
-      <div className="px-20 pt-10 w-full h-[80%]">
-        <div className="flex">
+      <div className="px-4 md:px-20 pt-10 w-full h-auto md:h-[80%]">
+        <div className="flex flex-col md:flex-row">
           <img
             src={`https://image.tmdb.org/t/p/original/${info.details.poster_path}`}
-            className="h-84 w-64 rounded-md object-cover"
+            className="h-84 w-full md:w-64 rounded-md object-cover"
           />
-          <div className="flex flex-col pt-4 px-20">
-            <h1 className="text-5xl font-bold">{info.details.title}</h1>
-            <p className="text-gray-400">
-              Release Date: {info.details.release_date}
-            </p>
-            <p className="text-gray-400">
-              Rating: {info.details.vote_average.toFixed(1)}
-            </p>
-            <p className="text-gray-400">
-              Genre: {info.details.genres.map((genre) => genre.name).join(", ")}
-            </p>
-            <p className="font-semibold text-xl mt-5 ">
-              {info.details.tagline}
-            </p>
+          <div className="flex flex-col pt-4 px-4 md:px-20">
+            <h1 className="text-3xl md:text-5xl font-bold">{info.details.title}</h1>
+            <p className="text-gray-400">Release Date: {info.details.release_date}</p>
+            <p className="text-gray-400">Rating: {info.details.vote_average.toFixed(1)}</p>
+            <p className="text-gray-400">Genre: {info.details.genres.map((genre) => genre.name).join(", ")}</p>
+            <p className="font-semibold text-lg md:text-xl mt-5">{info.details.tagline}</p>
             <p className="mt-2">{info.details.overview}</p>
             {info.videoes ? (
               <a
@@ -82,43 +74,40 @@ const MovieDetails = () => {
             <p className="text-gray-400">
               {info.watchproviders ? (
                 <>
-                  {info.watchproviders.flatrate &&
-                    info.watchproviders.flatrate.length > 0 && (
-                      <img
-                        src={`https://image.tmdb.org/t/p/original/${info.watchproviders.flatrate[0].logo_path}`}
-                        className="inline-block h-12 w-12 rounded my-4"
-                        alt="Flatrate provider"
-                      />
-                    )}
+                  {info.watchproviders.flatrate && info.watchproviders.flatrate.length > 0 && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/original/${info.watchproviders.flatrate[0].logo_path}`}
+                      className="inline-block h-12 w-12 rounded my-4"
+                      alt="Flatrate provider"
+                    />
+                  )}
                   <br />
-                  {info.watchproviders.rent &&
-                    info.watchproviders.rent.length > 0 && (
-                      <div className="inline-flex items-center my-4">
-                        <p className="mr-2">Rent:</p>
-                        {info.watchproviders.rent.map((item, index) => (
-                          <img
-                            key={`rent-${index}`}
-                            src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
-                            className="inline-block h-12 w-12 rounded mx-2"
-                            alt={`Rent provider ${index}`}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  {info.watchproviders.buy &&
-                    info.watchproviders.buy.length > 0 && (
-                      <div className="inline-flex items-center ml-10 my-4">
-                        <p className="mr-2">Buy:</p>
-                        {info.watchproviders.buy.map((item, index) => (
-                          <img
-                            key={`buy-${index}`}
-                            src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
-                            className="inline-block h-12 w-12 rounded mx-2"
-                            alt={`Buy provider ${index}`}
-                          />
-                        ))}
-                      </div>
-                    )}
+                  {info.watchproviders.rent && info.watchproviders.rent.length > 0 && (
+                    <div className="inline-flex items-center my-4">
+                      <p className="mr-2">Rent:</p>
+                      {info.watchproviders.rent.map((item, index) => (
+                        <img
+                          key={`rent-${index}`}
+                          src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                          className="inline-block h-12 w-12 rounded mx-2"
+                          alt={`Rent provider ${index}`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                  {info.watchproviders.buy && info.watchproviders.buy.length > 0 && (
+                    <div className="inline-flex items-center ml-10 my-4">
+                      <p className="mr-2">Buy:</p>
+                      {info.watchproviders.buy.map((item, index) => (
+                        <img
+                          key={`buy-${index}`}
+                          src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                          className="inline-block h-12 w-12 rounded mx-2"
+                          alt={`Buy provider ${index}`}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </>
               ) : (
                 <p className="mt-4">No Watch Providers</p>

@@ -48,29 +48,21 @@ const TvDetails = () => {
       <Topnav />
       <i
         onClick={() => navigate("/")}
-        className="ri-home-line hover:bg-blue-800 flex justify-center rounded-full items-center h-10 w-10 absolute top-8 left-10 transition-transform duration-300 ease-in-out transform hover:scale-110 active:scale-95"
+        className="ri-home-line hover:bg-blue-800 flex justify-center rounded-full items-center h-10 w-10 absolute top-1 left-0 z-40 sm:top-8 sm:left-10 transition-transform duration-300 ease-in-out transform hover:scale-110 active:scale-95"
       ></i>
 
-      <div className="px-20 pt-10 w-full h-[80%]">
-        <div className="flex">
+      <div className="px-4 md:px-20 pt-10 w-full h-auto">
+        <div className="flex flex-col md:flex-row">
           <img
             src={`https://image.tmdb.org/t/p/original/${info.details.poster_path}`}
-            className="h-84 w-64 rounded-md object-cover"
+            className="h-84 w-full md:w-64 rounded-md object-cover"
           />
-          <div className="flex flex-col pt-4 px-20">
-            <h1 className="text-5xl font-bold">{info.details.name}</h1>
-            <p className="text-gray-400">
-              Release Date: {info.details.first_air_date}
-            </p>
-            <p className="text-gray-400">
-              Rating: {info.details.vote_average.toFixed(1)}
-            </p>
-            <p className="text-gray-400">
-              Genre: {info.details.genres.map((genre) => genre.name).join(", ")}
-            </p>
-            <p className="font-semibold text-xl mt-5 ">
-              {info.details.tagline}
-            </p>
+          <div className="flex flex-col pt-4 px-4 md:px-20">
+            <h1 className="text-3xl md:text-5xl font-bold">{info.details.name}</h1>
+            <p className="text-gray-400">Release Date: {info.details.first_air_date}</p>
+            <p className="text-gray-400">Rating: {info.details.vote_average.toFixed(1)}</p>
+            <p className="text-gray-400">Genre: {info.details.genres.map((genre) => genre.name).join(", ")}</p>
+            <p className="font-semibold text-lg md:text-xl mt-5">{info.details.tagline}</p>
             <p className="mt-2">{info.details.overview}</p>
             {info.videoes ? (
               <a
@@ -83,8 +75,8 @@ const TvDetails = () => {
               ""
             )}
             <p className="text-gray-400">
-              {info.watchproviders ?  (
-                 <img
+              {info.watchproviders ? (
+                <img
                   src={`https://image.tmdb.org/t/p/original/${info.watchproviders.flatrate[0].logo_path}`}
                   className="inline-block h-12 w-12 rounded my-4"
                 />
@@ -95,10 +87,10 @@ const TvDetails = () => {
           </div>
         </div>
         <h2 className="text-2xl font-semibold mt-10">Seasons:</h2>
-        <div className=" h-72 flex gap-8 mt-2 overflow-auto container ">
+        <div className="h-72 flex gap-8 mt-2 overflow-auto container">
           {info.details.seasons.map((items, index) => {
             return (
-              <div key={index} className="h-52 w-40 rounded-md shrink-0 ">
+              <div key={index} className="h-52 w-40 rounded-md shrink-0">
                 <img
                   src={
                     items.poster_path
@@ -106,7 +98,7 @@ const TvDetails = () => {
                       : "/image.png"
                   }
                   alt=""
-                  className="h-56 w-40 rounded-lg object-cover "
+                  className="h-56 w-40 rounded-lg object-cover"
                 />
                 <h1 className="text-sm">{items.name || items.title}</h1>
               </div>

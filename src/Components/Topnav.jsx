@@ -25,10 +25,10 @@ const Topnav = () => {
   }, [query]);
 
   return (
-    <div className="p-2 w-full flex justify-center items-center z-10 pb-1 relative">
-      <i className="ri-search-line mr-1 bg-zinc-900 h-9 w-9 flex justify-center items-center rounded-full"></i>
+    <div className="p-2 w-full flex pl-5 justify-center items-center z-10 pb-1 relative">
+      <i className="ri-search-line mr-1 bg-zinc-900 h-9 w-9 hidden sm:flex justify-center items-center rounded-full"></i>
 
-      <div className="relative w-[400px]">
+      <div className="relative w-[80%]  sm:w-[400px]">
         <input
           onChange={(e) => setquery(e.target.value)}
           className="h-9 w-full border-white bg-zinc-900 p-2 font-semibold outline-none rounded-lg text-white pr-10"

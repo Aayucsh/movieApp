@@ -17,7 +17,7 @@ const Section = ({ data }) => {
         <h1 className="text-5xl font-semibold pb-2 ">
           {data.name || data.title}
         </h1>
-        <p className="pb-2 w-[50%]">{data.overview}</p>
+        <p className="pb-2 h-24 overflow-hidden w-[50%]">{data.overview}</p>
         <button
           className="border-2 p-3 border-gray-600 "
         >
